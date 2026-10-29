@@ -16,7 +16,6 @@
             <button onclick="filterCategory('')" class="nav-btn active">All Videos</button>
             <button onclick="filterCategory('Full Games')" class="nav-btn">Full Games</button>
             <button onclick="filterCategory('Highlights')" class="nav-btn">Highlights</button>
-            <a href="/admin.html" class="admin-link">Admin Panel</a>
         </nav>
     </header>
 
@@ -71,7 +70,7 @@
                 card.className = 'video-card';
                 card.innerHTML = `
                     <div class="thumbnail-wrapper" onclick="playVideo('${video.id}', '${video.title}')">
-                        <img src="${video.thumbnailUrl}" alt="${video.title}" onerror="this.src='https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80'">
+                        <img src="${video.thumbnailUrl}" alt="${video.title}">
                         <div class="play-overlay">&#9658;</div>
                         <span class="badge ${video.category === 'Full Games' ? 'badge-full' : 'badge-highlight'}">${video.category}</span>
                     </div>
