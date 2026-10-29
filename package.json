@@ -1,0 +1,18 @@
+{
+  "name": "buckeye-vault",
+  "version": "1.0.0",
+  "description": "Ohio State football full games and highlights archive",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.450.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
