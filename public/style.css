@@ -1,52 +1,54 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
+    background-color: #0d0d0d;
     margin: 0;
-    color: #333;
+    color: #e0e0e0;
 }
 
 .site-header {
-    background-color: #ce1126;
+    background-color: #1a1a1a;
+    border-bottom: 3px solid #bb0000;
     color: white;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .site-header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 26px;
+    color: #bb0000;
+    letter-spacing: 1px;
 }
 
 .site-header p {
     margin: 5px 0 0 0;
     font-size: 14px;
-    opacity: 0.9;
+    color: #aaa;
 }
 
 .site-header nav {
     display: flex;
     gap: 10px;
-    align-items: center;
 }
 
-.nav-btn, .admin-link {
-    background: transparent;
-    border: 1px solid white;
+.nav-btn {
+    background: #262626;
+    border: 1px solid #404040;
     color: white;
-    padding: 8px 15px;
+    padding: 8px 16px;
     cursor: pointer;
     border-radius: 4px;
-    text-decoration: none;
     font-size: 14px;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
-.nav-btn.active, .nav-btn:hover, .admin-link:hover {
-    background: white;
-    color: #ce1126;
+.nav-btn.active, .nav-btn:hover {
+    background: #bb0000;
+    border-color: #bb0000;
+    color: white;
 }
 
 .container {
@@ -62,14 +64,21 @@ body {
 }
 
 .filters-bar input, .filters-bar select {
-    padding: 10px;
+    background-color: #1f1f1f;
+    color: white;
+    padding: 12px;
     font-size: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #333;
     border-radius: 4px;
 }
 
 .filters-bar input {
     flex: 1;
+}
+
+.filters-bar input:focus, .filters-bar select:focus {
+    outline: none;
+    border-color: #bb0000;
 }
 
 .video-grid {
@@ -79,15 +88,16 @@ body {
 }
 
 .video-card {
-    background: white;
+    background: #181818;
+    border: 1px solid #282828;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
 .video-card:hover {
     transform: translateY(-4px);
+    border-color: #bb0000;
 }
 
 .thumbnail-wrapper {
@@ -101,7 +111,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.85;
+    opacity: 0.8;
 }
 
 .play-overlay {
@@ -109,12 +119,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 40px;
+    font-size: 32px;
     color: white;
-    background: rgba(0,0,0,0.5);
+    background: rgba(187, 0, 0, 0.8);
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,8 +143,8 @@ body {
     text-transform: uppercase;
 }
 
-.badge-full { background-color: #222; }
-.badge-highlight { background-color: #ce1126; }
+.badge-full { background-color: #333; }
+.badge-highlight { background-color: #bb0000; }
 
 .video-info {
     padding: 15px;
@@ -143,11 +153,11 @@ body {
 .video-info h3 {
     margin: 0 0 5px 0;
     font-size: 16px;
-    color: #111;
+    color: #fff;
 }
 
 .opponent {
-    color: #666;
+    color: #888;
     margin: 0 0 10px 0;
     font-size: 14px;
 }
@@ -156,7 +166,14 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
+    color: #666;
+}
+
+.no-videos {
     color: #888;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
 }
 
 .modal {
@@ -166,19 +183,21 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .modal-content {
-    background: white;
+    background: #141414;
+    border: 1px solid #333;
     padding: 20px;
     border-radius: 8px;
     width: 80%;
     max-width: 850px;
     position: relative;
+    color: white;
 }
 
 .close-btn {
@@ -186,74 +205,10 @@ body {
     right: 15px;
     top: 10px;
     font-size: 28px;
+    color: #aaa;
     cursor: pointer;
 }
 
-.admin-container {
-    max-width: 800px;
-}
-
-.upload-card, .manage-section {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    margin-bottom: 30px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.submit-btn {
-    background: #ce1126;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.submit-btn:hover {
-    background: #a50d1e;
-}
-
-.status-msg {
-    margin-top: 15px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.admin-video-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.delete-btn {
-    background: #d9534f;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+.close-btn:hover {
+    color: #bb0000;
 }
