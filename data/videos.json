@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1730221200000",
+    "title": "2024 Ohio State vs Michigan",
+    "opponent": "Michigan",
+    "season": "2024",
+    "gameDate": "2024-11-30",
+    "category": "Full Games",
+    "r2Key": "videos/sample-osu-michigan-2024.mp4",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": "1730221200001",
+    "title": "2024 Ohio State vs Penn State Highlights",
+    "opponent": "Penn State",
+    "season": "2024",
+    "gameDate": "2024-11-02",
+    "category": "Highlights",
+    "r2Key": "videos/sample-osu-pennstate-2024.mp4",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": "1730221200002",
+    "title": "2024 Ohio State vs Oregon",
+    "opponent": "Oregon",
+    "season": "2024",
+    "gameDate": "2024-10-12",
+    "category": "Full Games",
+    "r2Key": "videos/sample-osu-oregon-2024.mp4",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": "1730221200003",
+    "title": "2023 Ohio State vs Notre Dame Highlights",
+    "opponent": "Notre Dame",
+    "season": "2023",
+    "gameDate": "2023-09-23",
+    "category": "Highlights",
+    "r2Key": "videos/sample-osu-nd-2023.mp4",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": "1730221200004",
+    "title": "2023 Ohio State vs Penn State",
+    "opponent": "Penn State",
+    "season": "2023",
+    "gameDate": "2023-10-21",
+    "category": "Full Games",
+    "r2Key": "videos/sample-osu-psu-2023.mp4",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": "1730221200005",
+    "title": "2022 Ohio State vs Wisconsin Highlights",
+    "opponent": "Wisconsin",
+    "season": "2022",
+    "gameDate": "2022-09-24",
+    "category": "Highlights",
+    "r2Key": "videos/sample-osu-wisconsin-2022.mp4",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoylikes.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80"
+  }
+]
