@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buckeye Vault - Ohio State Football Archives</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <h1>O-H! Buckeye Vault</h1>
+            <p>Full Games & Historic Highlights Archive</p>
+        </div>
+        <nav>
+            <button onclick="filterCategory('')" class="nav-btn active">All Videos</button>
+            <button onclick="filterCategory('Full Games')" class="nav-btn">Full Games</button>
+            <button onclick="filterCategory('Highlights')" class="nav-btn">Highlights</button>
+            <a href="/admin.html" class="admin-link">Admin Panel</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="filters-bar">
+            <input type="text" id="searchInput" placeholder="Search opponent or title..." oninput="fetchVideos()">
+            <select id="seasonFilter" onchange="fetchVideos()">
+                <option value="">All Seasons</option>
+                <option value="2024">2024 Season</option>
+                <option value="2023">2023 Season</option>
+                <option value="2022">2022 Season</option>
+            </select>
+        </section>
+
+        <section id="videoGrid" class="video-grid">
+            <!-- Dynamically populated video cards -->
+        </section>
+    </main>
+
+    <!-- Video Modal Player -->
+    <div id="videoModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <video id="htmlVideoPlayer" controls width="100%">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        let currentCategory = '';
+
+        async function fetchVideos() {
+            const search = document.getElementById('searchInput').value;
+            const season = document.getElementById('seasonFilter').value;
+            
+            let url = `/api/videos?category=${currentCategory}&season=${season}&search=${search}`;
+            const res = await fetch(url);
+            const videos = await res.json();
+
+            const grid = document.getElementById('videoGrid');
+            grid.innerHTML = '';
+
+            if (videos.length === 0) {
+                grid.innerHTML = '<p class="no-videos">No videos found matching your criteria.</p>';
+                return;
+            }
+
+            videos.forEach(video => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <div class="thumbnail-wrapper" onclick="playVideo('${video.id}', '${video.title}')">
+                        <img src="${video.thumbnailUrl}" alt="${video.title}" onerror="this.src='https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80'">
+                        <div class="play-overlay">&#9658;</div>
+                        <span class="badge ${video.category === 'Full Games' ? 'badge-full' : 'badge-highlight'}">${video.category}</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>${video.title}</h3>
+                        <p class="opponent">vs. ${video.opponent}</p>
+                        <div class="meta-details">
+                            <span>Season: ${video.season}</span>
+                            <span>Date: ${video.gameDate}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            fetchVideos();
+        }
+
+        function playVideo(id, title) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('htmlVideoPlayer');
+            document.getElementById('modalTitle').innerText = title;
+            
+            player.src = `/api/stream/${id}`;
+            modal.style.display = 'block';
+            player.play();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('htmlVideoPlayer');
+            player.pause();
+            player.src = '';
+            modal.style.display = 'none';
+        }
+
+        fetchVideos();
+    </script>
+</body>
+</html>
